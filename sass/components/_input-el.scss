@@ -1,0 +1,31 @@
+input {
+  border: none;
+  background-color: rgb(233, 233, 233);
+  width: 25rem;
+  height: 4rem;
+
+  &:focus {
+    outline: none;
+    background-color: rgb(223, 223, 223);
+  }
+}
+
+.data-input__box {
+  & span {
+    margin-bottom: 1rem;
+  }
+
+  &--function {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  &--range {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,23 @@
+.table {
+  display: inline-block;
+  border-right: 0.1px solid rgb(209, 209, 209);
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  justify-self: center;
+
+  &__row {
+    display: flex;
+  }
+
+  &__column {
+    padding: 1rem;
+    border: 0.1px solid rgb(209, 209, 209);
+    width: 8rem;
+  }
+}
+
+.iteration--column {
+  border: none !important;
+  margin-top: 0.35rem;
+  color: rgb(179, 179, 179);
+}

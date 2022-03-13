@@ -1,11 +1,11 @@
 .btn {
-  width: 11rem;
-  height: 3.5rem;
+  display: inline-block;
+  height: 3.6rem;
   border-radius: 5rem;
-  padding-top: 0.6rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  padding-top: 0.7rem;
   text-align: center;
-  margin: 0 auto;
-  margin-top: 1.2rem;
   background-color: orangered;
   transition: all 0.3s;
 
@@ -17,5 +17,16 @@
 
   &:active {
     transform: translateY(2px);
+  }
+
+  &--execute {
+    margin: 0 auto;
+    margin-top: 1.2rem;
+  }
+
+  &--reset {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 45%;
   }
 }

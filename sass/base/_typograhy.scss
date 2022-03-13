@@ -3,11 +3,13 @@ html {
 }
 
 .data-label {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 100;
 }
 
 input {
   font-family: inherit;
+  font-weight: 200;
   color: orangered;
   font-size: 2.5rem;
   text-align: center;
@@ -22,7 +24,43 @@ input {
 
 .popup__header {
   text-align: left;
-  font-size: 3.2rem;
   margin-top: 5rem;
-  margin-left: 5rem;
+  margin-left: 5.5rem;
+  & h1 {
+    font-size: 3.2rem;
+  }
+
+  & h2 {
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: orangered;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: orangered;
+      color: white;
+    }
+  }
+}
+
+.table {
+  text-align: center;
+  font-size: 1.5rem;
+  &__row {
+    position: relative;
+  }
+
+  &__row--primary {
+    font-family: "Sansita Swashed", cursive;
+    font-size: 3rem;
+    font-weight: lighter;
+    color: orangered;
+  }
+
+  .iteration--column {
+    font-size: 1.2rem;
+    font-family: "Source Sans Pro", sans-serif;
+  }
 }

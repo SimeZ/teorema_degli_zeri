@@ -7,30 +7,58 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;400;500;600&family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap"
       rel="stylesheet"
     />
     <title>Teorema degli zeri</title>
   </head>
   <body>
-    <div class="popup-container">
-      <h1 class="popup__header">Inserisci la tua funzione:</h1>
+    <section class="popup-container">
+      <div class="popup__header">
+        <h1>Inserisci la tua funzione:</h1>
+        <h2>Clicca qui per le istruzioni per l'inserimento</h2>
+      </div>
+      <div class="data-input__box data-input__box--iteration">
+        <span class="data-label">N. iterazioni:</span>
+        <input
+          type="number"
+          name="iteration-data"
+          value="10"
+          class="iteration-data"
+        />
+      </div>
       <div class="u-center-input">
         <div class="data-input__box data-input__box--function">
           <span class="data-label">Inserisci la funzione:</span>
-          <input type="text" name="function-data" class="function-data" />
+          <input
+            type="text"
+            name="function-data"
+            placeholder="y=log2(5)"
+            class="function-data"
+          />
         </div>
-
         <div class="data-input__box data-input__box--range">
           <span class="data-label">Inserisci il range:</span>
-          <input type="text" name="range-data" class="range-data" />
+          <input
+            type="text"
+            name="range-data"
+            placeholder="0,2"
+            class="range-data"
+          />
         </div>
-        <div class="btn"><span>Esegui</span></div>
+        <div class="btn btn--execute" onclick="start()">
+          <span>Esegui</span>
+        </div>
       </div>
+    </section>
+    <!-- <div id="ggb-element" style="display: none"></div> -->
+    <div class="table" style="display: none"></div>
+    <div class="btn btn--reset" style="display: none" onclick="reset()">
+      <span>Analizza un'altra funzione</span>
     </div>
-    <!-- <div id="ggb-element"></div> -->
-    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

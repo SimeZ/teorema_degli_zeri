@@ -32,6 +32,10 @@ html {
 body {
   box-sizing: border-box;
   overflow-x: hidden;
+
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 /*

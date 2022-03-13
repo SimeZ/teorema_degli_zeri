@@ -1,37 +1,49 @@
 "use strict";
 
 // HTML ELEMENTS
+
+// FORM ELEMENTS
 const popupEl = document.querySelector(".popup-container");
 const resetBtnEl = document.querySelector(".btn--reset");
 const rangeDataEl = document.querySelector(".range-data");
 const iterationDataEl = document.querySelector(".iteration-data");
 const functionDataEl = document.querySelector(".function-data");
 const ExecuteBtnEl = document.querySelector(".btn");
-const geogebraEl = document.getElementById("ggb-element");
+
+// TABLE ELEMENTS
 const tableEl = document.querySelector(".table");
+const tableHeaderContainer = document.querySelector(".table__header");
+const tableH1El = document.querySelector(".table__header--h1");
+const tableH2El = document.querySelector(".table__header--h2");
 
 // GLOBAL VARIABLES
-let functionData, rangeData, iterationData;
+let functionData,
+  rangeData,
+  iterationData,
+  isRunning = false; // is used to understand if the bisezione() function is running or not
 
-// MAIN FUNCTION
+// SHORTCUTS FUNCTIONS
 document.addEventListener("keypress", keyPressed);
 
-const start = function () {
+function keyPressed(e) {
+  if (e.code === "Enter" && !isRunning) main();
+  else if (e.code === "KeyE" && isRunning) reset();
+}
+
+// MAIN FUNCTION
+const main = function () {
+  isRunning = true;
+  getData(); // Gets the data from all the inputs form in the popup window
+
+  // Adds the table header
+  tableHeaderContainer.style.display = "inline-block";
+  tableH1El.textContent = `Funzione: ${functionData}`;
+  tableH2El.textContent = `Intervallo: [${rangeData}]`;
+
+  // Hides the popup windows and shows the reset btn and the table
   popupEl.style.display = "none";
   resetBtnEl.style.display = "inline-block";
   tableEl.style.display = "inline-block";
-
-  getData(); // Gets the data from all the inputs form in the popup window
-
-  // Adds the table title
-  document.body.insertAdjacentHTML(
-    "beforebegin",
-    `
-  <div class="title__container table__header">
-  <h1>Funzione: ${functionData}</h1>
-  <h2>Intervallo: [${rangeData}]</h2>
-</div>`
-  );
 
   // Adds the main row in the table
   tableEl.insertAdjacentHTML(
@@ -53,15 +65,7 @@ const start = function () {
   bisezione(a, b);
 };
 
-function keyPressed(e) {
-  if (e.code === "Enter") start();
-}
-
-// METODO BISEZIONE
-const calcFunction = function (n) {
-  return n * Math.cos(n);
-};
-
+// TABLE FUNCTIONS
 const insertRow = function (a, b, c, fA, fB, fC, i) {
   const rowEl = `      
   <div class="table__row table__row--secondary">
@@ -76,6 +80,11 @@ const insertRow = function (a, b, c, fA, fB, fC, i) {
   tableEl.insertAdjacentHTML("beforeend", rowEl);
 };
 
+// METODO BISEZIONE
+const calcFunction = function (n) {
+  return 2 * n + Math.log2(n);
+};
+
 const bisezione = function (a, b) {
   let c;
 
@@ -85,7 +94,7 @@ const bisezione = function (a, b) {
     const fA = calcFunction(a);
     const fB = calcFunction(b);
     const fC = calcFunction(c);
-    insertRow(a, b, c, fA, fB, fC, i); // Inserisce i valori calcolati all'interno della tabella
+    insertRow(a, b, c, fA, fB, fC, i); // Writes the calcutaed values in the table
 
     if (fC === 0) {
       return;
@@ -104,7 +113,7 @@ const getData = function () {
   iterationData = Number(iterationDataEl.value);
 };
 
-// TRUNC FUNCTION
+// TRUNC DECIMALS FUNCTION
 const truncateDecimals = function (number, digits) {
   var multiplier = Math.pow(10, digits),
     adjustedNum = number * multiplier,
@@ -115,13 +124,18 @@ const truncateDecimals = function (number, digits) {
 
 // RESETS THE UI
 const reset = function () {
-  popupEl.style.display = "inline-block";
-  resetBtnEl.style.display = "none";
-  tableEl.style.display = "none";
+  isRunning = false;
 
   // reset the form content
   functionDataEl.value = "";
   rangeDataEl.value = "";
 
+  // Shows the popup window
+  popupEl.style.display = "inline-block";
+  resetBtnEl.style.display = "none";
+  tableEl.style.display = "none";
+
+  // Resets the rows inside the table and hiddens the table itself
   tableEl.innerHTML = "";
+  tableHeaderContainer.style.display = "none";
 };

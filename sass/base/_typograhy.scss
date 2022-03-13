@@ -80,3 +80,18 @@ input {
     font-family: "Source Sans Pro", sans-serif;
   }
 }
+
+.warnings {
+  display: inline-block;
+  font-size: 1.3rem;
+  margin-top: 29.8rem;
+  margin-left: 1.7rem;
+  color: rgb(102, 102, 102);
+  font-weight: lighter;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: rgb(240, 240, 240);
+    transform: scale(1.05);
+  }
+}

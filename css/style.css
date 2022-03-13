@@ -140,6 +140,18 @@ input {
     font-size: 1.2rem;
     font-family: "Source Sans Pro", sans-serif; }
 
+.warnings {
+  display: inline-block;
+  font-size: 1.3rem;
+  margin-top: 29.8rem;
+  margin-left: 1.7rem;
+  color: #666666;
+  font-weight: lighter;
+  transition: all 0.3s; }
+  .warnings:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05); }
+
 .btn {
   display: inline-block;
   height: 3.6rem;
@@ -161,8 +173,7 @@ input {
     margin-top: 1.2rem; }
   .btn--reset {
     position: fixed;
-    bottom: 1.5rem;
-    left: 43.5vw; }
+    bottom: 1.5rem; }
 
 input {
   border: none;

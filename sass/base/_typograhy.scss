@@ -22,10 +22,7 @@ input {
   }
 }
 
-.popup__header {
-  text-align: left;
-  margin-top: 5rem;
-  margin-left: 5.5rem;
+.title__container {
   & h1 {
     font-size: 3.2rem;
   }
@@ -45,16 +42,35 @@ input {
   }
 }
 
+.popup__header {
+  text-align: left;
+  margin-top: 5rem;
+  margin-left: 5.5rem;
+}
+
+.table__header {
+  margin-top: 4.5rem;
+  text-align: center;
+
+  & h1 {
+    font-size: 4.2rem;
+  }
+
+  & h2 {
+    font-size: 2.2rem;
+  }
+}
+
 .table {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   &__row {
     position: relative;
   }
 
   &__row--primary {
     font-family: "Sansita Swashed", cursive;
-    font-size: 3rem;
+    font-size: 2.3rem;
     font-weight: lighter;
     color: orangered;
   }

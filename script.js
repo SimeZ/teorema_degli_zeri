@@ -23,6 +23,16 @@ const start = function () {
 
   getData(); // Gets the data from all the inputs form in the popup window
 
+  // Adds the table title
+  document.body.insertAdjacentHTML(
+    "beforebegin",
+    `
+  <div class="title__container table__header">
+  <h1>Funzione: ${functionData}</h1>
+  <h2>Intervallo: [${rangeData}]</h2>
+</div>`
+  );
+
   // Adds the main row in the table
   tableEl.insertAdjacentHTML(
     "beforeend",
@@ -89,7 +99,7 @@ const bisezione = function (a, b) {
 
 // GET DATA FUNCTION
 const getData = function () {
-  functionData = functionDataEl.value.split("=")[1];
+  functionData = functionDataEl.value;
   rangeData = rangeDataEl.value.split(",");
   iterationData = Number(iterationDataEl.value);
 };
